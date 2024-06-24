@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 
-const Ingreso=({stateChange})=>{
+const Ingreso=({contador,contadorTotal})=>{
     const [nombre, setNombre] = useState("");
 
     async function taskCreation() {
@@ -19,6 +20,7 @@ const Ingreso=({stateChange})=>{
           });
           let data = await response.json(); // Await the response
           console.log(data);
+          console.log(contador);
 
      } catch (error) {
         console.log(error);
@@ -26,14 +28,12 @@ const Ingreso=({stateChange})=>{
 
    
     }
-    
-    console.log("antes de useGet");
+    let papaya=contadorTotal<1
    
-    
-    console.log("depues de useGet");
 
     return(
         <>
+        {papaya?<p>No hay tareas agregadas</p>:<p>{contador}</p>}
         <input type="text" placeholder="Inserte su tarea" onChange={(e)=>setNombre(e.target.value)}/>
         <button onClick={taskCreation}>Ingresar tarea</button>
        

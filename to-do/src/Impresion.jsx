@@ -1,6 +1,7 @@
-import {data} from "react"
-const Impresion =({data})=>{
-    console.log('Impresion corre');
+/* eslint-disable react/prop-types */
+
+const Impresion =({data, eliminar, cambio})=>{
+    
    
 
 
@@ -11,9 +12,12 @@ const Impresion =({data})=>{
     return(
         <div>
          {data.map((tarea) => (
-        <div key={tarea.id}>
-          <input type="checkbox" />
+        <div className="Tarea" key={tarea.id}>
+          <input className='TareaBox' type="checkbox"defaultChecked={tarea.state} onChange={()=>{
+            cambio(tarea)
+          }}/>
           <p>{tarea.nome}</p>
+          <button onClick={()=>eliminar(tarea.id,tarea)}>ELIMINAR</button>
         </div>
       ))}
         </div>
