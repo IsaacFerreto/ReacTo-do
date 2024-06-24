@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react"
+import {data} from "react"
 const Impresion =({data})=>{
     console.log('Impresion corre');
    

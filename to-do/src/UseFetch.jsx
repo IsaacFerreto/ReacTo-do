@@ -5,7 +5,13 @@ import { useState,useEffect } from "react";
 const UseFetch =() =>{
     const [data, setData] = useState(null);
 
+const [run, setRun] = useState(false);
 
+  
+
+function stateChange() {
+  setRun(!run)
+}
     const fetchGet =async () => {
         try {
           const response = await fetch(`http://localhost:3000/api/task/`);
@@ -20,10 +26,11 @@ const UseFetch =() =>{
       
       
       
-      }, []);
+      }, [data]);
+      
 return(
   <>
-    <Ingreso useGet={UseFetch}/>
+    <Ingreso stateChange={stateChange}/>
     <Impresion data={data}/>
  </>
 )

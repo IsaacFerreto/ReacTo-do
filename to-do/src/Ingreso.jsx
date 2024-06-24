@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Ingreso=(UseGet)=>{
+const Ingreso=({stateChange})=>{
     const [nombre, setNombre] = useState("");
 
     async function taskCreation() {
@@ -28,12 +28,8 @@ const Ingreso=(UseGet)=>{
     }
     
     console.log("antes de useGet");
-    const AnotherComponent = ({ UseGet }) => {
-      useEffect(() => {
-        UseGet();
-      }, [UseGet]);
-    }
-    AnotherComponent()
+   
+    
     console.log("depues de useGet");
 
     return(
