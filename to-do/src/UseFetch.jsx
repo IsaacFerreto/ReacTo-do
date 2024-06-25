@@ -4,7 +4,6 @@ import { useState,useEffect } from "react";
 
 const UseFetch =() =>{
     const [data, setData] = useState([]);
-
     const [run, setRun] = useState(false);
     let num = 0
  

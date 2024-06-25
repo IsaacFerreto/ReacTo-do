@@ -2,9 +2,16 @@
 import { useState } from "react"
 
 const Ingreso=({contador,contadorTotal})=>{
+
     const [nombre, setNombre] = useState("");
 
     async function taskCreation() {
+if (!nombre) {
+  alert('Esta Vacio')
+} else {
+  
+
+
      let task={
         nome:nombre,
         state:false
@@ -26,14 +33,14 @@ const Ingreso=({contador,contadorTotal})=>{
         console.log(error);
      }
 
-   
     }
-    let papaya=contadorTotal<1
+    }
+    let contadorSalida=contadorTotal<1
    
 
     return(
         <>
-        {papaya?<p>No hay tareas agregadas</p>:<p>{contador}</p>}
+        {contadorSalida?<p>No hay tareas agregadas</p>:<p>{contador}</p>}
         <input type="text" placeholder="Inserte su tarea" onChange={(e)=>setNombre(e.target.value)}/>
         <button onClick={taskCreation}>Ingresar tarea</button>
        

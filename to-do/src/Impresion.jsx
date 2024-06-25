@@ -17,7 +17,7 @@ const Impresion =({data, eliminar, cambio})=>{
             cambio(tarea)
           }}/>
           <p>{tarea.nome}</p>
-          <button onClick={()=>eliminar(tarea.id,tarea)}>ELIMINAR</button>
+          <button className='buttonTareaBox'onClick={()=>eliminar(tarea.id,tarea)}>ELIMINAR</button>
         </div>
       ))}
         </div>
