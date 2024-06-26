@@ -86,8 +86,8 @@ async function cambio(objeto) {
       
 return(
   <>
-    <Ingreso stateChange={stateChange} contador={counter} contadorTotal={data.length}/>
-    <Impresion data={data} eliminar={eliminar} cambio={cambio} />
+    <Ingreso stateChange={stateChange} contador={counter} contadorTotal={data.length} objeto={data} eliminar={eliminar}/>
+    <Impresion data={data} eliminar={eliminar} cambio={cambio}/>
  </>
 )
 

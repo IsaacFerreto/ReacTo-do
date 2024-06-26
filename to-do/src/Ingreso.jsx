@@ -1,10 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
 
-const Ingreso=({contador,contadorTotal})=>{
+const Ingreso=({contador,contadorTotal,objeto, eliminar})=>{
 
     const [nombre, setNombre] = useState("");//state to set the task information
 
+    const limpiar=()=>{
+objeto.forEach(el => {
+  eliminar(el.id,el)
+  
+});
+
+
+    }
     async function taskCreation() {
 if (!nombre) {//validation to check if it is empty
   alert('Esta Vacio')
@@ -43,6 +51,7 @@ if (!nombre) {//validation to check if it is empty
         {contadorSalida?<p>No hay tareas agregadas</p>:<p>{contador}</p>}
         <input type="text" placeholder="Inserte su tarea" onChange={(e)=>setNombre(e.target.value)}/>
         <button onClick={taskCreation}>Ingresar tarea</button>
+        <button onClick={limpiar}>Limpiar</button>
        
         </>
         
