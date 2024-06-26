@@ -3,21 +3,21 @@ import { useState } from "react"
 
 const Ingreso=({contador,contadorTotal})=>{
 
-    const [nombre, setNombre] = useState("");
+    const [nombre, setNombre] = useState("");//state to set the task information
 
     async function taskCreation() {
-if (!nombre) {
+if (!nombre) {//validation to check if it is empty
   alert('Esta Vacio')
 } else {
   
 
-
+//creation of task
      let task={
         nome:nombre,
         state:false
      }
         
-     try {
+     try {//METHOD POST
         const response = await fetch(`http://localhost:3000/api/task/`, {
             method: "POST",
             headers: {
@@ -35,7 +35,7 @@ if (!nombre) {
 
     }
     }
-    let contadorSalida=contadorTotal<1
+    let contadorSalida=contadorTotal<1//bollean declaration to check if the message will appear in case it is empty
    
 
     return(

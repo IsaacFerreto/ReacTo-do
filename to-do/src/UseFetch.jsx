@@ -3,8 +3,8 @@ import Impresion from "./Impresion";
 import { useState,useEffect } from "react";
 
 const UseFetch =() =>{
-    const [data, setData] = useState([]);
-    const [run, setRun] = useState(false);
+    const [data, setData] = useState([]);//this state was use to set the information from fetch
+    const [run, setRun] = useState(false);//this was use to activated a Component
     let num = 0
  
     const[counter, setCounter] = useState(num)
@@ -12,22 +12,22 @@ const UseFetch =() =>{
 function stateChange() {
   setRun(!run)
 }
-    const fetchGet =async () => {
+    const fetchGet =async () => { //GET
         try {
           const response = await fetch(`http://localhost:3000/api/task/`);
           const data = await response.json();
           setData(data);
-          const initialCount = data.filter(task => task.state).length
+          const initialCount = data.filter(task => task.state).length//filter to check the completed task
           setCounter(initialCount)
         } catch (e) {
           console.log(e);
         }
       }
-      useEffect(() => {
+      useEffect(() => {//use effect link to list for evrytime it changes
         fetchGet();
       }, [data])
 
-async function eliminar(id,objeto) {
+async function eliminar(id,objeto) {//METHOD DELETE
 
     console.log("LLEGA a funcion para borrar");
     try {
@@ -42,7 +42,7 @@ async function eliminar(id,objeto) {
     }
 
     if (objeto.state) {
-  
+  //in case there is a completed task to decrease the counter
       setCounter(counter => counter - 1)
     }
     
@@ -69,7 +69,7 @@ async function cambio(objeto) {
    console.log(`Console log objeto.state DESPUES de cambio ${objeto.state}`);
    let datosPut = await putRespuesta.json()
    console.log(datosPut);
-   
+   //if to start counter
     if (!objeto.state) {
     
       setCounter(counter => counter - 1)
